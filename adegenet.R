@@ -1,5 +1,4 @@
-##For all populations
-
+# Load libraries
 library(adegenet)
 library(dplyr)
 library(tidyr)
@@ -63,7 +62,7 @@ summary_table <- data.frame(
 
 print(summary_table)
 
-##write.table(summary_table, "Expected and observed hererozygosity and allelic richness.txt", sep = "\t", row.names = FALSE, quote = FALSE)
+write.table(summary_table, "Expected and observed hererozygosity and allelic richness.txt", sep = "\t", row.names = FALSE, quote = FALSE)
 
 
 # Convert genind object to genpop object
@@ -71,7 +70,6 @@ genpop_obj <- genind2genpop(genind_obj)
 genpop_obj
 
 popNames(genpop_obj)
-
 summary(genpop_obj)
 
 
@@ -109,7 +107,7 @@ wc_table <- data.frame(
 
 print(wc_table)
 
-##write.table(wc_table, "Fst and Fis.txt", sep="\t", row.names = FALSE, quote = FALSE)
+write.table(wc_table, "Fst and Fis.txt", sep="\t", row.names = FALSE, quote = FALSE)
 
 # Genetic distances (Nei) between populations
 nei <- genet.dist(genind_obj, method = "Nei87")
@@ -137,7 +135,7 @@ plot(phylo_tree, type = "fan", main = "UPGMA Dendrogram (Circular Layout)")
 
 
 # Save the Nei's distance table to a .txt file
-###write.table(nei_df, "nei_genetic_distance.txt", sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
+write.table(nei_df, "nei_genetic_distance.txt", sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 
 
 # New genind object out of obj, where populations are separated
@@ -165,7 +163,7 @@ table_Heterozygosity <- data.frame(
   Observed_Heterozygosity = c(mean(sum1$Hobs), mean(sum2$Hobs), mean(sum3$Hobs), mean(sum4$Hobs), mean(sum5$Hobs), mean(sum6$Hobs), mean(sum7$Hobs))
 )
 
-##write.table(table_Heterozygosity, "Heterozygosity.txt", sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
+write.table(table_Heterozygosity, "Heterozygosity.txt", sep = "\t", row.names = TRUE, col.names = TRUE, quote = FALSE)
 
 ## PCA
 
@@ -242,9 +240,7 @@ dev.off()
 
 ## sPCA
 
-
 # Using poppr - gac
-
 library(poppr)
 
 gac1 <- genotype_curve(obj_par, sample = 1000, quiet = TRUE)
@@ -268,7 +264,6 @@ diversity2<-poppr(obj_pro)
 diversity2
 
 # using pegas - HW test
-
 library(pegas)
 
 hwe1 <- hw.test(obj_par, B = 1000)
@@ -315,7 +310,6 @@ mlg.table(obj_pro)
 ## sPCA
 
 # For all trees and populations
-
 mySpca <- spca(obj, ask=FALSE, type=5, d1=0.04, d2=0.1, scannf=FALSE)
 
 png("spatialauto2.png", width = 1000, height = 1000, res=300)
@@ -339,4 +333,3 @@ plot(mySpca)
 png("colorplot2.png", width = 3000, height = 2000, res=300)
 colorplot(mySpca,cex=3,main="sPCA colorplot, first global score")
 dev.off()
-
