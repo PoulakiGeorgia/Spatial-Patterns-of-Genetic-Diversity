@@ -1,7 +1,8 @@
 # Spatial Patterns of Genetic Diversity
+This project aims to investigate population structure and reveal the spatial patterns.
 
 ## Adegenet
-Genetic metrics are calculated for the whole dataset. Expected and observed heterozygosity (_He_, _Ho_), allelic richness and F-statistics are estimated. Additionally, nei's distance is computed constructing an UPGMA dendrogram. 
+Genetic metrics are calculated for the whole dataset. Expected and observed heterozygosity (_He_ and _Ho_), allelic richness and F-statistics are estimated. Additionally, nei's distance is computed constructing an UPGMA dendrogram. 
 
 adegenet: a R package for the multivariate analysis of the molecular markers. 
   - **PCA**
